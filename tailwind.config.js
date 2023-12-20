@@ -34,11 +34,12 @@ module.exports = {
           "url('https://i.ibb.co/MkvLDfb/Rectangle-4389.png')",
       },
       colors: {
-        DME: '#2b3945',
-        DMB: '#202c37',
-        LMT: '#111517',
-        LMI: '#858585',
-        LMB: '#fafafa',
+        blueTheme: '#1a97f5',
+        greenTheme: '#03c9d7',
+        purpleTheme: '#7352ff',
+        redTheme: '#ff5c8e',
+        indigoTheme: '#1e4db7',
+        orangeTheme: '#fb9678',
         salte: '#0f172a'
       },
       keyframes : {

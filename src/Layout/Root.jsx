@@ -3,10 +3,12 @@ import Setting from "../Components/Setting"
 import  Sidebar from "./../Components/Sidebar"
 import  Footer from "./../Components/Footer"
 import  Navbar from "./../Components/Navbar"
+import { useSelector } from "react-redux"
 
 export const Root = () => {
 
-    const activeMenu = true
+    const {activeMenu} = useSelector((state) => state.dashReducer)
+
     const currentMode = ''
 
     return (
@@ -31,9 +33,9 @@ export const Root = () => {
                     }
                 >
                     {/* For The Navbar IN Page */}
-                    <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full ">
+                    <header className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full ">
                         <Navbar />
-                    </div>
+                    </header>
 
                     <div className="main-content">
                         <Outlet/>  {/* The Outlet In the page */}

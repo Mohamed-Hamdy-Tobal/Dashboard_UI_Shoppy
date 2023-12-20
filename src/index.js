@@ -29,6 +29,10 @@ const routes = createBrowserRouter([
     children: [
       //  dashboard  
       {index: true, element: <Home/>},
+      {
+        path: '/ecommerce',
+        element: <Home/>
+      },
 
       //  pages    
       {

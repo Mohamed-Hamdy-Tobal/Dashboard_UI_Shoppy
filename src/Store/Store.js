@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import countriesSlice from './Reducers/countriesSlice'
+import dashReducer from './Reducers/dashReducer'
 
 
 export const store = configureStore({
     reducer: {
-        filterProducts: countriesSlice,
+        dashReducer: dashReducer
     },
 })

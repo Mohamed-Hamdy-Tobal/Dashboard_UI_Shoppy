@@ -5,6 +5,7 @@ import {links} from '../assets/dummy.js'
 import { Link, NavLink } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux';
 import {toggleFeature } from '../Store/Reducers/dashReducer.js'
+import { Fragment } from "react"
 
 const Sidebar = () => {
 
@@ -28,15 +29,16 @@ const Sidebar = () => {
 
                 {/* The Links */}
                 <div className='mt-10'>                
-                    {links.map((item,idx) => (<>
-                        <p key={idx} className='text-gray-400 m-3 uppercase'>{item.title}</p>
+                    {links.map((item) => (
+                    <Fragment key={item.title}>
+                        <p className='text-gray-400 m-3 uppercase'>{item.title}</p>
                         {item.links.map((link) => (
                         <NavLink to={`/${link.name}`} key={link.name} onClick={() => {}} className={({ isActive }) => (isActive ? activeLink : normalLink)} style={({ isActive }) => ({backgroundColor: isActive ? '#03c9d7' : ''})}>
                             {link.icon}
                             <span className='capitalize'>{link.name}</span>
                         </NavLink>
                         ))}
-                    </>))}
+                    </Fragment>))}
                 </div>
             </>)}
         </div>

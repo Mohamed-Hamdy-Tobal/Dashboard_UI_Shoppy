@@ -4,7 +4,7 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups'
 import {links} from '../assets/dummy.js'
 import { Link, NavLink } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux';
-import { menuToggler } from '../Store/Reducers/dashReducer.js'
+import {toggleFeature } from '../Store/Reducers/dashReducer.js'
 
 const Sidebar = () => {
 
@@ -20,9 +20,9 @@ const Sidebar = () => {
             {activeMenu && (<>
                  {/* The Logo And Close Button */}
                 <div className="flex items-center justify-between">
-                    <Link to='/' onClick={() => {dispatch(menuToggler())}} className="flex justify-center gap-3 ml-3 mt-4 items-center text-xl font-extrabold tracking-tight dark:text-white text-salte"><SiShopware/> <span>Shoppy</span></Link>
+                    <Link to='/' onClick={() => {dispatch(toggleFeature("activeMenu"))}} className="flex justify-center gap-3 ml-3 mt-4 items-center text-xl font-extrabold tracking-tight dark:text-white text-salte"><SiShopware/> <span>Shoppy</span></Link>
                     <TooltipComponent content='Menu' position='BottomCenter'>
-                        <button type='button' onClick={() => {dispatch(menuToggler())}} className='text-xl rounded-full p-3 hover:bg-light-gray mt-4 block md:hidden'><MdOutlineCancel/></button>
+                        <button type='button' onClick={() => {dispatch(toggleFeature("activeMenu"))}} className='text-xl rounded-full p-3 hover:bg-light-gray mt-4 block md:hidden'><MdOutlineCancel/></button>
                     </TooltipComponent>
                 </div>
 

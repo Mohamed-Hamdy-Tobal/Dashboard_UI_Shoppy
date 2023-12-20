@@ -5,35 +5,27 @@ const initialState = {
     chat: false,
     cart: false,
     userProfile: false,
-    Notification: false,
-    activeMenu: true
-}
+    notification: false,
+    activeMenu: true,
+};
 
-const countriesSlice = createSlice({
-    name: 'countriesSlice',
+const navbarSlice = createSlice({
+    name: "navbar",
     initialState,
     reducers: {
-        darkMood : (state) => {
-            state.darkState =!state.darkState
-        },
-        menuToggler : (state) => {
-            state.activeMenu =!state.activeMenu
-        },
-        cartToggler : (state) => {
-            state.cart =!state.cart
-        },
-        chatToggler : (state) => {
-            state.chat =!state.chat
-        },
-        notiToggler : (state) => {
-            state.Notification =!state.Notification
-        },
-        profileToggler : (state) => {
-            state.userProfile =!state.userProfile
+        toggleFeature: (state, action) => {
+        const feature = action.payload;
+        if (state.hasOwnProperty(feature)) {
+            state[feature] = !state[feature];
+            console.log(feature, state[feature]);
         }
-    }
-})
+        },
+        toggleDarkMode: (state) => {
+        state.darkState = !state.darkState;
+        },
+    },
+});
 
-export const { darkMood, menuToggler, cartToggler, chatToggler, notiToggler, profileToggler } = countriesSlice.actions
+export const { toggleFeature, toggleDarkMode } = navbarSlice.actions;
 
-export default countriesSlice.reducer
+export default navbarSlice.reducer;

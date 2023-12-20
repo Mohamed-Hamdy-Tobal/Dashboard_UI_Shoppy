@@ -5,8 +5,13 @@ import {RiNotification3Line} from 'react-icons/ri'
 import {MdKeyboardArrowDown} from 'react-icons/md'
 import { TooltipComponent } from '@syncfusion/ej2-react-popups'
 import avatar from '../assets/imgs/avatar.jpg'
-import { useDispatch } from 'react-redux';
-import { toggleFeature } from '../Store/Reducers/dashReducer'
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleFeature, setActiveMenu } from '../Store/Reducers/dashReducer'
+import Chat from './Chat'
+import Notifications from './Notifications'
+import UserProfile from './UserProfile'
+import Cart from './Cart'
+import { useEffect, useState } from 'react'
 
 
 const NavButton = ({title, color, dotColor, customFunc, icon}) => (
@@ -28,7 +33,36 @@ const NavButton = ({title, color, dotColor, customFunc, icon}) => (
 
 const Navbar = () => {
 
+    const [size, setSize] = useState(null)
+
     const dispatch = useDispatch()
+    const {chat, cart, userProfile, notification} = useSelector((state) => state.dashReducer)
+
+    useEffect(() => {
+
+    const handleResize = () => {
+        setSize(window.innerWidth)
+    };
+    
+    // Add event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    // Cleanup the event listener on component unmount
+    return () => {
+        window.removeEventListener("resize", handleResize);
+    };
+    }, []);
+
+    useEffect(() => {
+        if (size <= 768) {
+            console.log('size', size)
+            dispatch(setActiveMenu(false))
+        } else {
+            dispatch(setActiveMenu(true))
+        }
+    },[size, dispatch])
 
     return (
         <div className='flex justify-between p-2 md:mx-6 relative'>
@@ -52,7 +86,10 @@ const Navbar = () => {
                     </button>
                 </TooltipComponent>
 
-                
+                {cart && <Cart/>}
+                {notification && <Notifications/>}
+                {chat && <Chat/>}
+                {userProfile && <UserProfile/>}
             </div>
         </div>
     )

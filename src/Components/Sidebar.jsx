@@ -27,16 +27,17 @@ const Sidebar = () => {
                 </div>
 
                 {/* The Links */}
-                {links.map((item,idx) => (<>
-                    <p key={idx} className='text-gray-400 m-3 uppercase'>{item.title}</p>
-                    {item.links.map((link) => (
-                    <NavLink to={`/${link.name}`} key={link.name} onClick={() => {}} className={({ isActive }) => (isActive ? activeLink : normalLink)} style={({ isActive }) => ({backgroundColor: isActive ? '#03c9d7' : ''})}>
-                        {link.icon}
-                        <span className='capitalize'>{link.name}</span>
-                    </NavLink>
-                    ))}
-                </>))}
-                
+                <div className='mt-10'>                
+                    {links.map((item,idx) => (<>
+                        <p key={idx} className='text-gray-400 m-3 uppercase'>{item.title}</p>
+                        {item.links.map((link) => (
+                        <NavLink to={`/${link.name}`} key={link.name} onClick={() => {}} className={({ isActive }) => (isActive ? activeLink : normalLink)} style={({ isActive }) => ({backgroundColor: isActive ? '#03c9d7' : ''})}>
+                            {link.icon}
+                            <span className='capitalize'>{link.name}</span>
+                        </NavLink>
+                        ))}
+                    </>))}
+                </div>
             </>)}
         </div>
     )

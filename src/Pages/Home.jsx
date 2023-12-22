@@ -2,6 +2,8 @@
 import Button from '../Components/Button'
 import { earningData } from '../assets/dummy'
 import background from './../assets/imgs/imgdesktop.jpg'
+import {BsCurrencyDollar} from 'react-icons/bs'
+import {GoDotFill} from 'react-icons/go'
 
 
 export const Home = () => {
@@ -44,7 +46,23 @@ export const Home = () => {
             </div>
 
              {/* [2] - Second Section */}
-            
+            <div className="updates flex gap-10 flex-wrap justify-center">
+                {/* Revenue */}
+                <div className="revenue bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl m-3 p-4 md:w-[780px]">
+                    <div className="header flex justify-between">
+                        <p className='font-semibold text-xl'>Revenue Updates</p>
+                        <div className="flex items-center gap-4">
+                            <p className="dot flex items-center gap-2 text-gray-600 hover:drop-shadow-xl"><span><GoDotFill/></span> <span>Expense</span></p>
+                            <p className="dot flex items-center gap-2 text-green-400 hover:drop-shadow-xl"><span><GoDotFill/></span> <span>Budget</span></p>
+                        </div>
+                    </div>
+                </div>
+                {/* Budget */}
+                <div className="budget">
+
+                </div>
+            </div>
         </div>
     )
 }
+// 1:58

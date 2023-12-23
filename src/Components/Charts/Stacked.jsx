@@ -1,6 +1,22 @@
-const Stacked = () => {
+import {ChartComponent, SeriesCollectionDirective, SeriesDirective, Inject, Legend, Category, StackingColumnSeries, Tooltip} from '@syncfusion/ej2-react-charts'
+import { stackedCustomSeries, stackedPrimaryXAxis, stackedPrimaryYAxis } from '../../assets/dummy'
+
+const Stacked = ({width, height}) => {
     return (
-        <div>Stacked</div>
+        <ChartComponent 
+        width={width} 
+        height={height}
+        id='stack chart'
+        primaryXAxis={stackedPrimaryXAxis}
+        primaryYAxis={stackedPrimaryYAxis}
+        legendSettings={{background: 'white'}}
+        chartArea={{border: {width: 0}}}
+        tooltip={{enable: true}}>
+            <Inject services={[Legend, Category, StackingColumnSeries, Tooltip]}/>
+            <SeriesCollectionDirective>
+                {stackedCustomSeries.map((item, idx) => (<SeriesDirective key={idx} {...item} />))}
+            </SeriesCollectionDirective>
+        </ChartComponent>
     )
 }
 

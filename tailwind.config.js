@@ -31,7 +31,7 @@ module.exports = {
       },
       backgroundImage: {
         'hero-pattern':
-          "url('https://i.ibb.co/MkvLDfb/Rectangle-4389.png')",
+          "url('src/assets/imgs/bg-cover.png')",
       },
       colors: {
         blueTheme: '#1a97f5',
@@ -56,7 +56,7 @@ module.exports = {
         sm: '576px',
         md: '768px',
         lg: '992px',
-        xl: '1200',
+        xl: '1200px',
         '2xl': '1400px'
       },
     },
